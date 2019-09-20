@@ -15,7 +15,7 @@ export default function App() {
       <Link to="/characters">Characters</Link>      
       </div>
       <Route exact path="/" component={WelcomePage} />
-      <Route path="/characters/:id" render={props => <CharacterList {...props}/>}  />
+      <Route path="/characters/:id" render={props => <CharacterList {...props}/>} />
      
      
     </main>

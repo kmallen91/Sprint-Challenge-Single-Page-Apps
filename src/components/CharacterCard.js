@@ -6,12 +6,13 @@ import {
 
 const CharacterCard = (props) => {
   return (
-    <div>
-      <Card key={props.key}>
-      <CardImg top width="100%" src={props.image} alt={props.name} />
+    
+      <div>
+      <Card className="card" key={props.key}>
+      <CardImg className="image" top width="100%" src={props.image} alt={props.name} />
         <CardBody>
           <CardTitle>{props.name}</CardTitle>
-          <CardSubtitle>From: {props.origin}</CardSubtitle>
+          <CardSubtitle>From: {props.origin.name}</CardSubtitle>
           <CardText>
           Gender: {props.gender}
           Status: {props.status}
@@ -20,7 +21,8 @@ const CharacterCard = (props) => {
           <Button>?????</Button>
         </CardBody>
       </Card>
-    </div>
+      </div>
+    
   );
 };
 

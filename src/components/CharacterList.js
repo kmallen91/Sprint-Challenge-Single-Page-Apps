@@ -8,36 +8,44 @@ export default function CharacterList(props) {
   const [characters, setCharacter] = useState([]);
 
 
-// const id = props.match.params.id
+
   useEffect(() => {
     const person = props.match.params.id;
-    const getCharacters = () => {
     axios
-    .get(`https://rickandmortyapi.com/api/character/${person}`)
+    .get(`https://rickandmortyapi.com/api/character/`)
     .then(response => {
-      console.log(response.data.results.id);
-      setCharacter(response.data.results);
+      console.log(response);
+      var results = response.data.results;
+      setCharacter(results);
     })
-    .catch(err => {console.log("ERROR", err)})
+    .catch(err => {console.log("ERROR", err)})    
     
-    }
-    getCharacters();
-    console.log(person)
+  
+    
   }, [props.match.params.id]);
   // console.log(characters.length)
-  
+  console.log(characters)
 
   return (
     <section className="character-list">
-       
+       <div className="card-container">
       {characters.map(character => (
         
-        <CharacterCard key={character.id} {...character}/>
+        <CharacterCard key ={characters.id} {...character} />
         
       ))}
-    
+    </div>
     
      
     </section>
   );
+
+//   function CharacterDetails({characters}) {
+//   return (
+//     <Link to={`/characters/${characters.id}`} >
+//     <CharacterCard {...characters} />
+    
+//     </Link>
+//   );
+// }
 }
